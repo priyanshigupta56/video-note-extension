@@ -1,48 +1,305 @@
-import React from 'react'
+import React from 'react';
 
-const Home = () => {
+
+
+const Homepage = () => {
   return (
-   /* Hero */
-<div className="relative overflow-hidden before:absolute before:top-0 before:start-1/2 before:bg-[url('https://preline.co/assets/svg/examples/squared-bg-element.svg')] dark:before:bg-[url('https://preline.co/assets/svg/examples-dark/squared-bg-element.svg')] before:bg-no-repeat before:bg-top before:size-full before:-z-1 before:transform before:-translate-x-1/2">
-  <div className="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-10">
-    {/* Announcement Banner */}
-    <div className="flex justify-center">
-      <a className="inline-flex items-center gap-x-2 bg-white border border-gray-200 text-xs text-gray-600 p-2 px-3 rounded-full transition hover:border-gray-300 focus:outline-hidden focus:border-gray-300 dark:bg-neutral-800 dark:border-neutral-700 dark:text-neutral-400 dark:hover:border-neutral-600 dark:focus:border-neutral-600" href="#">
-        Explore the Capital Product
-        <span className="flex items-center gap-x-1">
-          <span className="border-s border-gray-200 text-blue-600 ps-2 dark:text-blue-500 dark:border-neutral-700">Explore</span>
-          <svg className="shrink-0 size-4 text-blue-600" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
-        </span>
-      </a>
+    <div className="bg-gray-300 ">
+      
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+<link
+  href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+  rel="stylesheet"
+/>
+
+      {/* Header Section */}
+      <header className="sticky top-0 bg-red-700 text-white font-serif">
+        <div className="max-w-screen-xl font-serif mx-auto flex justify-between items-center p-4">
+          <div className="flex items-center space-x-2">
+            <img src="/icons8-video-100.png" alt="Vidionotes Logo" className="h-14 w-auto" />
+            <h1 className="text-xl font-bold font-serif">
+              Vidionotes</h1>
+          </div>
+          <nav className="space-x-6 text-right font-serif">
+            <a href="#home" className="hover:text-gray-300 font-serif">Home</a>
+            <a href="#features" className="hover:text-gray-300">Features</a>
+            <a href="#about" className="hover:text-gray-300">About Us</a>
+            <a href="#contact" className="hover:text-gray-300">Contact Us</a>
+            <a href="#contact" className="hover:text-gray-300">FAQs</a>
+            
+            <a href="#login" className="hover:text-gray-300">Login</a>
+            <a href="#signup" className="hover:text-gray-300">Signup</a>
+          </nav>
+        </div>
+      </header>
+
+      {/* Hero Section */}
+      <section className="bg-blue-600 text-white py-20">
+      <div className="container mx-auto text-center">
+        <h1 className="text-4xl font-bold mb-4">
+          Capture and Organize Video Insights Effortlessly
+        </h1>
+        <p className="text-lg mb-6">
+          Save key video moments, bookmark important timestamps, and manage clips seamlessly with Vidionotes.
+        </p>
+        <div>
+          <a href="/signup" className="bg-white text-blue-600 px-6 py-3 rounded-full font-semibold mr-4">
+            Get Started – It's Free!
+          </a>
+          <a href="/learn-more" className="border border-white px-6 py-3 rounded-full font-semibold">
+            Learn More
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section className="py-16 font-serif">
+      <div className="max-w-screen-xl mx-auto text-center">
+        <h2 className="text-3xl font-bold mb-8">About Us</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 px-6">
+          {/* Card 1 */}
+          <div className="bg-white shadow-lg rounded-2xl p-6 max-w-sm text-center">
+          <h3 className="text-xl font-semibold text-black">Save Key Video Moments</h3>
+          <img src="/icons8-video-100.png" alt="Save Video" className="mx-auto my-4 w-24 h-24" />
+          <p className="text-gray-700">
+            Capture and store important video clips effortlessly. No more scrubbing through hours of content—save only what matters!
+          </p>
+        </div>
+          
+          {/* Card 2 */}
+          <div className="bg-white shadow-lg rounded-2xl p-6 max-w-sm text-center">
+          <h3 className="text-xl font-semibold text-black">Save Key Video Moments</h3>
+          <img src="/icons8-video-100.png" alt="Save Video" className="mx-auto my-4 w-24 h-24" />
+          <p className="text-gray-700">
+            Capture and store important video clips effortlessly. No more scrubbing through hours of content—save only what matters!
+          </p>
+        </div>
+          
+          {/* Card 3 */}
+          <div className="bg-white shadow-lg rounded-2xl p-6 max-w-sm text-center">
+          <h3 className="text-xl font-semibold text-black">Save Key Video Moments</h3>
+          <img src="/icons8-video-100.png" alt="Save Video" className="mx-auto my-4 w-24 h-24" />
+          <p className="text-gray-700">
+            Capture and store important video clips effortlessly. No more scrubbing through hours of content—save only what matters!
+          </p>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <section className="py-16 bg-gray-300 font-serif">
+      <div className="max-w-screen-xl mx-auto text-center">
+        <h2 className="text-3xl font-bold mb-8">Features</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 px-6">
+          {/* Card 1 */}
+          <div className="bg-white p-6 rounded-lg shadow-md border border-gray-200">
+            <div className="flex justify-center mb-4">
+              <i className="fas fa-video text-4xl text-red-600"></i>
+            </div>
+            <p className="text-lg text-black">Save key moments effortlessly.</p>
+          </div>
+          
+          {/* Card 2 */}
+          <div className="bg-white p-6 rounded-lg shadow-md border border-gray-200">
+            <div className="flex justify-center mb-4">
+              <i className="fas fa-bookmark text-4xl text-red-600"></i>
+            </div>
+            <p className="text-lg text-black">Easily bookmark timestamps for quick access.</p>
+          </div>
+          
+          {/* Card 3 */}
+          <div className="bg-white p-6 rounded-lg shadow-md border border-gray-200">
+            <div className="flex justify-center mb-4">
+              <i className="fas fa-folder text-4xl text-red-600"></i>
+            </div>
+            <p className="text-lg text-black">Organize your clips into folders for smooth navigation.</p>
+          </div>
+          
+          {/* Card 4 */}
+          <div className="bg-white p-6 rounded-lg shadow-md border border-gray-200">
+            <div className="flex justify-center mb-4">
+              <i className="fas fa-share text-4xl text-red-600"></i>
+            </div>
+            <p className="text-lg text-black">Share your favorite clips with friends.</p>
+          </div>
+          
+          {/* Card 5 */}
+          <div className="bg-white p-6 rounded-lg shadow-md border border-gray-200">
+            <div className="flex justify-center mb-4">
+              <i className="fas fa-search text-4xl text-red-600"></i>
+            </div>
+            <p className="text-lg text-black">Search and filter clips based on tags.</p>
+          </div>
+          
+          {/* Card 6 */}
+          <div className="bg-white p-6 rounded-lg shadow-md border border-gray-200">
+            <div className="flex justify-center mb-4">
+              <i className="fas fa-sync text-4xl text-red-600"></i>
+            </div>
+            <p className="text-lg text-black">Sync your clips across all devices.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section className="py-16 bg-gray-300 font-serif">
+      <div className="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 px-6">
+        {/* Left Card: Form */}
+        <div className="bg-white p-6 rounded-lg shadow-md border border-gray-200">
+          <h3 className="text-2xl font-semibold text-black mb-4">Contact Us</h3>
+          <form>
+            <div className="mb-4">
+              <label className="block text-lg text-gray-700">Name</label>
+              <input 
+                type="text" 
+                className="w-full p-3 border border-gray-300 rounded-md"
+                placeholder="Enter your name"
+              />
+            </div>
+            <div className="mb-4">
+              <label className="block text-lg text-gray-700">Email</label>
+              <input 
+                type="email" 
+                className="w-full p-3 border border-gray-300 rounded-md"
+                placeholder="Enter your email"
+              />
+            </div>
+            <div className="mb-4">
+              <label className="block text-lg text-gray-700">Your Message</label>
+              <textarea 
+                className="w-full p-3 border border-gray-300 rounded-md"
+                placeholder="Enter your message"
+              />
+            </div>
+            <button 
+              type="submit" 
+              className="bg-red-600 text-white py-2 px-6 rounded-md"
+            >
+              Send Message
+            </button>
+          </form>
+        </div>
+
+        {/* Right Card: Heading */}
+        <div className="bg-white p-6 rounded-lg shadow-md border border-gray-200 flex items-center justify-center">
+          <div>
+            <h3 className="text-3xl font-semibold text-black mb-4">Get In Touch</h3>
+            <p className="text-lg text-gray-700">
+              We'd love to hear from you! If you have any questions or feedback, feel free to reach out to us.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section className="py-16 bg-gray-300 font-serif">
+      <div className="max-w-screen-xl mx-auto text-center font-serif">
+        <h2 className="text-3xl font-bold mb-8">Frequently Asked Questions</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+          <div className="bg-white p-6 rounded-lg shadow-md border border-gray-200">
+            <div className="flex justify-between items-center">
+              <h3 className="text-xl font-semibold text-black">How do I use Vidionotes?</h3>
+            </div>
+            <p className="text-lg text-gray-700 mt-4">
+              To use Vidionotes, install the extension, sign up or log in, and start saving video timestamps.
+            </p>
+          </div>
+
+          <div className="bg-white p-6 rounded-lg shadow-md border border-gray-200">
+            <div className="flex justify-between items-center">
+              <h3 className="text-xl font-semibold text-black">Can I sync my video notes across multiple devices?</h3>
+            </div>
+            <p className="text-lg text-gray-700 mt-4">
+              Yes, your notes will be synced across all devices as long as you are logged into your account.
+            </p>
+          </div>
+
+          <div className="bg-white p-6 rounded-lg shadow-md border border-gray-200">
+            <div className="flex justify-between items-center">
+              <h3 className="text-xl font-semibold text-black">Is Vidionotes free?</h3>
+            </div>
+            <p className="text-lg text-gray-700 mt-4">
+              Vidionotes offers a free version with basic features. A premium version is available for more advanced features.
+            </p>
+          </div>
+
+          <div className="bg-white p-6 rounded-lg shadow-md border border-gray-200">
+            <div className="flex justify-between items-center">
+              <h3 className="text-xl font-semibold text-black">How do I bookmark a video timestamp?</h3>
+            </div>
+            <p className="text-lg text-gray-700 mt-4">
+              To bookmark a timestamp, click the Vidionotes icon in your browser and select the time you want to save.
+            </p>
+          </div>
+
+          <div className="bg-white p-6 rounded-lg shadow-md border border-gray-200">
+            <div className="flex justify-between items-center">
+              <h3 className="text-xl font-semibold text-black">What types of videos can I save clips from?</h3>
+            </div>
+            <p className="text-lg text-gray-700 mt-4">
+              You can save clips from YouTube and other supported video platforms.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+      {/* Footer Section */}
+      <footer className="bg-gray-800 text-white py-8 mt-16">
+      <div className="max-w-screen-xl mx-auto px-4">
+        {/* All Rights Reserved */}
+        <div className="text-center text-gray-400 mb-8">
+          <h2 className="text-xl">All Rights Reserved</h2>
+        </div>
+
+        {/* Footer Columns */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          {/* Important Links */}
+          <div>
+            <h3 className="text-lg font-semibold mb-4">Important Links</h3>
+            <ul className="text-gray-400">
+              <li><a href="/features" className="hover:text-white">Features</a></li>
+              <li><a href="/about-us" className="hover:text-white">About Us</a></li>
+              <li><a href="/contact-us" className="hover:text-white">Contact Us</a></li>
+              <li><a href="/privacy-policy" className="hover:text-white">Privacy Policy</a></li>
+            </ul>
+          </div>
+
+          {/* Home */}
+          <div>
+            <h3 className="text-lg font-semibold mb-4">Home</h3>
+            <ul className="text-gray-400">
+              <li><a href="/" className="hover:text-white">Homepage</a></li>
+              <li><a href="/faq" className="hover:text-white">FAQ</a></li>
+            </ul>
+          </div>
+
+          {/* Address */}
+          <div>
+            <h3 className="text-lg font-semibold mb-4">Our Address</h3>
+            <p className="text-gray-400">
+              123 Vidionotes St, <br />
+              Suite 101, <br />
+              City, Country
+            </p>
+          </div>
+
+          {/* Reach Out */}
+          <div>
+            <h3 className="text-lg font-semibold mb-4">Reach Out</h3>
+            <ul className="text-gray-400">
+              <li><a href="mailto:contact@vidionotes.com" className="hover:text-white">Email</a></li>
+              <li><a href="https://www.instagram.com/vidionotes" className="hover:text-white" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+              <li><a href="https://twitter.com/vidionotes" className="hover:text-white" target="_blank" rel="noopener noreferrer">Twitter</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
     </div>
-    {/* End Announcement Banner */}
+  );
+};
 
-    {/* Title */}
-    <div className="mt-5 max-w-xl text-center mx-auto">
-      <h1 className="block font-bold text-gray-800 text-4xl md:text-5xl lg:text-6xl dark:text-neutral-200">
-        Supercharged Preline Experience
-      </h1>
-    </div>
-    {/* End Title */}
-
-    <div className="mt-5 max-w-3xl text-center mx-auto">
-      <p className="text-lg text-gray-600 dark:text-neutral-400">Preline is a large open-source project, crafted with Tailwind CSS framework by Hmlstream.</p>
-    </div>
-
-    {/* Buttons */}
-    <div className="mt-8 gap-3 flex justify-center">
-      <a className="inline-flex justify-center items-center gap-x-3 text-center bg-linear-to-tl from-blue-600 to-violet-600 hover:from-violet-600 hover:to-blue-600 focus:outline-hidden focus:from-violet-600 focus:to-blue-600 border border-transparent text-white text-sm font-medium rounded-full py-3 px-4" href="#">
-        <svg className="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-          <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path>
-        </svg>
-        Continue with Github
-      </a>
-    </div>
-    {/* End Buttons */}
-  </div>
-</div>
-
-  )
-}
-
-export default Home;
+export default Homepage;
