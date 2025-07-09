@@ -1,24 +1,21 @@
 const express = require('express');
 const router = express.Router();
 const Note = require('../models/noteModel'); // Import the Note model
+const auth = require('../middleware/auth');
 
 // === Create a new note ===
 router.post('/create', async (req, res) => {
+  console.log(req.body); 
+  
   try {
-    const { noteId, userId, videoTitle, category, startTime, endTime } = req.body;
-
-    // Create a new note
-    const newNote = new Note({
-      noteId,
-      userId,
-      videoTitle,
-      category,
-      startTime,
-      endTime,
+    const note = new Note({
+      ...req.body
+      // userId: req.user.id, // Set userId from token if using auth
+      // userId: '681f563ca2727a2bab2ec5f4', // Remove hardcoded userId
     });
 
-    await newNote.save();
-    res.status(201).json({ message: 'Note created successfully', note: newNote });
+    await note.save();
+    res.status(201).json({ message: 'Note created successfully', note });
   } catch (error) {
     res.status(500).json({ message: 'Error creating note', error: error.message });
   }
@@ -35,7 +32,22 @@ router.get('/', async (req, res) => {
 });
 
 // === Get a specific note by ID ===
-router.get('/:id', async (req, res) => {
+
+router.get('/user-notes', auth, async (req, res) => {
+  console.log(req.user._id);
+  
+  try {
+    const note = await Note.find({ userId: req.user._id });
+    // if (!note) {
+    //   return res.status(404).json({ message: 'Note not found' });
+    // }
+    res.status(200).json(note);
+  } catch (error) {
+    res.status(500).json({ message: 'Error fetching note', error: error.message });
+  }
+});
+
+router.get('/getbyid/:id', async (req, res) => {
   try {
     const note = await Note.findOne({ noteId: req.params.id });
     if (!note) {

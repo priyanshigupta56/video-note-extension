@@ -8,11 +8,17 @@ const noteSchema = new mongoose.Schema({
     unique: true,
   },
   userId: {
-    type: String,
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User', // Reference to the User model
     required: true,
   },
   videoTitle: {
     type: String,
+    required: true,
+  },
+
+  videoUrl: {
+    type: String, // <-- Add this line
     required: true,
   },
   category: {

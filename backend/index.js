@@ -19,24 +19,11 @@ app.use('/note', NoteRouter);
 
 //endpoints or routes
 app.get('/', (req, res) => {
-res.send('response from express');
-})
-app.get('/add', (req, res) => {
-    res.send('response from add ');
+    res.send('response from express');
 })
 
-app.get('/getall', (req, res) => {
-    res.send('response from getall');
-})
-
-app.get('/delete', (req, res) => {
-    res.send('response from delete ');
-})
-app.get('/update', (req, res) => {
-    res.send('response from update ');
-})
 //starting the server
 app.listen(port, () => {
     console.log('server started');
-    
+
 });

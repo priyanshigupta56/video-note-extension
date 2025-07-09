@@ -28,9 +28,38 @@
       text-align: center;
     }
 
+    .form-container {
+      display: none;
+      margin-bottom: 15px;
+    }
+
+    .form-container.active {
+      display: block;
+    }
+
+    .form-group {
+      margin-bottom: 12px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      color: #555;
+      font-size: 14px;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
     .button-container {
       display: flex;
       justify-content: space-between;
+      margin-top: 15px;
     }
 
     button {
@@ -54,14 +83,88 @@
       background-color: #ccc;
       cursor: not-allowed;
     }
+
+    .auth-links {
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .auth-links a {
+      color: #e63946;
+      text-decoration: none;
+      cursor: pointer;
+      font-size: 13px;
+    }
+
+    .auth-links a:hover {
+      text-decoration: underline;
+    }
+
+    .error-message {
+      color: #e63946;
+      font-size: 12px;
+      margin-top: 5px;
+      text-align: center;
+      display: none;
+    }
   </style>
 </head>
 <body>
   <h2>Vidionotes</h2>
-  <p>Quickly add and manage your video notes.</p>
-  <div class="button-container">
-    <button id="add-note-btn">Add Note</button>
-    <button id="view-notes-btn">View Notes</button>
+  
+  <!-- Login Form -->
+  <div id="login-form" class="form-container active">
+    <div class="form-group">
+      <label for="login-email">Email</label>
+      <input type="email" id="login-email" placeholder="Enter your email">
+    </div>
+    <div class="form-group">
+      <label for="login-password">Password</label>
+      <input type="password" id="login-password" placeholder="Enter your password">
+    </div>
+    <button id="login-btn">Login</button>
+    <div class="auth-links">
+      <a id="show-signup">Don't have an account? Sign up</a>
+    </div>
+    <div id="login-error" class="error-message"></div>
   </div>
+
+  <!-- Signup Form -->
+  <div id="signup-form" class="form-container">
+    <div class="form-group">
+      <label for="signup-name">Name</label>
+      <input type="text" id="signup-name" placeholder="Enter your name">
+    </div>
+    <div class="form-group">
+      <label for="signup-email">Email</label>
+      <input type="email" id="signup-email" placeholder="Enter your email">
+    </div>
+    <div class="form-group">
+      <label for="signup-password">Password</label>
+      <input type="password" id="signup-password" placeholder="Enter your password">
+    </div>
+    <div class="form-group">
+      <label for="signup-city">City</label>
+      <input type="text" id="signup-city" placeholder="Enter your city">
+    </div>
+    <button id="signup-btn">Sign Up</button>
+    <div class="auth-links">
+      <a id="show-login">Already have an account? Login</a>
+    </div>
+    <div id="signup-error" class="error-message"></div>
+  </div>
+
+  <!-- Main App Content (Hidden initially) -->
+  <div id="app-content" class="form-container">
+    <p>Quickly add and manage your video notes.</p>
+    <div class="button-container">
+      <button id="view-notes-btn">View Notes</button>
+    </div>
+    <div class="auth-links">
+      <a id="logout-btn">Logout</a>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
 </body>
 </html>

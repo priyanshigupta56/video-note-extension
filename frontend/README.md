@@ -1,36 +1,108 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Video Note Extension
+
+A productivity tool that lets you take timestamped notes on YouTube videos, organize them by category, and quickly revisit important moments. Includes a Chrome extension for in-video note-taking and a web dashboard for managing your notes.
+
+## Features
+
+- 📝 Take timestamped notes while watching YouTube videos
+- 📂 Organize notes by categories (Important, Doubt, Rewatch, Other)
+- 🕒 Jump to specific video segments using your notes
+- 🔒 User authentication (login/signup)
+- 🖥️ Web dashboard to view, edit, and delete notes
+- 📑 Sidebar with categories, recents, and folders
+- 🧩 Chrome extension for seamless in-video note-taking
+
+## Tech Stack
+
+- **Frontend:** React, Next.js, Tailwind CSS
+- **Backend:** Node.js, Express, MongoDB
+- **Extension:** JavaScript (content scripts, popup)
+- **Authentication:** JWT
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js & npm
+- MongoDB
+
+### Setup
+
+#### 1. Clone the repository
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/yourusername/video-note-extension.git
+cd video-note-extension
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+#### 2. Install dependencies
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+```bash
+# Backend
+cd backend
+npm install
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+# Frontend
+cd ../frontend
+npm install
 
-## Learn More
+# Extension
+# (No install needed, just load in Chrome)
+```
 
-To learn more about Next.js, take a look at the following resources:
+#### 3. Configure environment variables
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Create a `.env` file in both `backend` and `frontend` directories.
+- Example for backend:
+  ```
+  MONGODB_URI=mongodb://localhost:27017/videonotes
+  JWT_SECRET=your_jwt_secret
+  ```
+- Example for frontend:
+  ```
+  NEXT_PUBLIC_API_URL=http://localhost:5000
+  ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+#### 4. Run the backend
 
-## Deploy on Vercel
+```bash
+cd backend
+npm start
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+#### 5. Run the frontend
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+cd ../frontend
+npm run dev
+```
+
+#### 6. Load the Chrome Extension
+
+- Go to `chrome://extensions`
+- Enable "Developer mode"
+- Click "Load unpacked" and select the `extension` folder
+
+## Usage
+
+1. **Sign up and log in** on the web dashboard.
+2. **Install and open the Chrome extension** while watching a YouTube video.
+3. **Take notes** using the floating modal. Notes are saved with timestamps and categories.
+4. **Manage your notes** on the dashboard: filter by category, play video segments, edit, or delete notes.
+
+## Project Structure
+
+```
+video-note-extension/
+├── backend/      # Express API & MongoDB models
+├── frontend/     # Next.js React app
+├── extension/    # Chrome extension source
+```
+
+## Contributing
+
+Pull requests are welcome! For major changes, please open an issue first to discuss what you would like to change.
+
+## License
+
+[MIT](LICENSE)

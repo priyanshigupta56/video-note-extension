@@ -2,6 +2,7 @@ const express = require('express');
 const Model = require('../models/UserModel');
 const router = express.Router();
 require('dotenv').config();
+const jwt = require('jsonwebtoken');
 
 router.post('/add', (req, res) => {
     console.log(req.body);
@@ -10,12 +11,10 @@ router.post('/add', (req, res) => {
             res.status(200).json(result);
         })
         .catch((err) => {
-            if(err?.code === 11000) {   res.status(400).json({ message: 'User already exists' })}else{
-                res.status(500).json({message: 'Internal server error'});
+            if (err?.code === 11000) { res.status(400).json({ message: 'User already exists' }) } else {
+                res.status(500).json({ message: 'Internal server error' });
             }
             console.log(err);
-            
-            
         });
 });
 
@@ -39,7 +38,7 @@ router.get('/getbycity/:city', (req, res) => {
 
         }).catch((err) => {
             console.log(err);
-            
+
             res.status(500).json(err);
 
         });
@@ -55,20 +54,20 @@ router.get('/getbyid/:id', (req, res) => {
 
         }).catch((err) => {
             console.log(err);
-            
+
             res.status(500).json(err);
 
         });
 });
 //update
 router.put('/update/:id', (req, res) => {
-    Model.findByIdAndUpdate(req.params.id, req.body, { new: true }) 
+    Model.findByIdAndUpdate(req.params.id, req.body, { new: true })
         .then((result) => {
             res.status(200).json(result);
 
         }).catch((err) => {
             console.log(err);
-            
+
             res.status(500).json(err);
 
         });
@@ -81,43 +80,38 @@ router.delete('/delete/:id', (req, res) => {
 
         }).catch((err) => {
             console.log(err);
-            
             res.status(500).json(err);
-
         });
 });
 
 router.post('/authenticate', (req, res) => {
+    console.log('Authenticate request body:', req.body); // Debug log
     Model.findOne(req.body)
-    .then((result) => {
-        if (result){
-            const {name, _id, email} = result;
-            const payload = { name, _id, email };
-            jwt.sign( payload,
-                process.env.JWT_SECRET,
-                { expiresIn: '1d' },
-                () => {
-                    if(err){
-                        console.log(err);
-                        res.status(500).json( { message: 'error generating token' });
-                        
-                    }else{
-                        res.status(200).json({ token });
+        .then((result) => {
+            console.log('Authenticate DB result:', result); // Debug log
+            if (result) {
+                const { name, _id, email } = result;
+                const payload = { name, _id, email };
+                jwt.sign(payload,
+                    process.env.JWT_SECRET,
+                    { expiresIn: '1d' },
+                    (err, token) => {
+                        if (err) {
+                            console.log(err);
+                            res.status(500).json({ message: 'error generating token' });
+                        } else {
+                            res.status(200).json({ token });
+                        }
                     }
-                }
-            )
-
-        }
-            else{
+                )
+            }
+            else {
                 res.status(401).json({ message: 'Invalid credentials' });
             }
         }).catch((err) => {
-        console.log(err);
-        res.status(500).json(err);
-
-        
-        
-    });
+            console.log(err);
+            res.status(500).json(err);
+        });
 });
 
 module.exports = router;

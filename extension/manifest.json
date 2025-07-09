@@ -1,25 +1,40 @@
 {
-    "manifest_version": 3,
-    "name": "Video Note Extension",
-    "version": "1.0",
-    "permissions": ["scripting", "tabs"],
-    "action": {
-      "default_popup": "popup.html"
-    },
-    "background": {
-      "service_worker": "background.js"
-    },
-    "content_scripts": [
-      {
-        "matches": ["<all_urls>"],
-        "js": ["content.js"]
-      }
-    ],
-    "host_permissions": ["*://www.youtube.com/*"],
-    "web_accessible_resources": [
-      {
-        "resources": ["logoimg.png"],
-        "matches": ["<all_urls>"]
-      }
-    ]
+  "manifest_version": 3,
+  "name": "Vidionotes",
+  "version": "1.0",
+  "description": "Add timestamped notes to videos",
+  "permissions": [
+    "storage",
+    "tabs"
+  ],
+  "host_permissions": [
+    "https://www.youtube.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "logoimgpart2.png",
+      "32": "logoimgpart2.png",
+      "48": "logoimgpart2.png",
+      "128": "logoimgpart2.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.youtube.com/*",
+        "http://www.youtube.com/*"
+      ],
+      "js": ["content.js"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["logoimgpart2.png"],
+      "matches": ["<all_urls>"]
+    }
+  ]
 }
